@@ -7,7 +7,7 @@ def derivative(f, x, h=1E-5):
 
 def _verify():
     from math import cos, pi
-    print(derivative(cos, pi/6))
+    print('The derivative of cos(30) is %.4f.'%derivative(cos, pi/6))
 
 if __name__=='__main__':
     _verify()
