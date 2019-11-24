@@ -6,7 +6,7 @@ class Integral:
         self.f, self.a, self.n = f, a, n
 
     def trapezoidal(self, f, a, x, n):
-        self.f,self.a,self.x,self.n=f,a,x,n
+
         h = (x - a) / n
         I = 0.5 * f(a)
         for i in range(1, n):
