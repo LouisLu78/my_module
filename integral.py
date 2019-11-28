@@ -20,8 +20,7 @@ class Integral:
 
 def _verify():
 
-    def f(x):
-        return 2*x**2
+    f=lambda x: 2*x**2
     G=Integral(f,0,n=100)
     result=G(10)
     print(result)
