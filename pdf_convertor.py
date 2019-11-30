@@ -14,6 +14,10 @@ def html_to_pdf(html, pdf_file):
     pdfkit.from_file(html, pdf_file, configuration=config)
     print('done')
 
+def string_to_pdf(string, pdf_file):
+    pdfkit.from_string(string, pdf_file, configuration=config)
+    print('done')
+
 
 
 def _verify():
