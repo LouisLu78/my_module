@@ -14,20 +14,17 @@ class Convertor:
         if not os.path.exists('.\\temp'):
             os.mkdir('.\\temp')
 
-        self.pdf_file='.\\temp\\tmp{}.pdf'.format(Convertor.counter)
+        self.pdf_file='D:\\Program files\\JetBrains\\my_module\\temp\\tmp{}.pdf'.format(Convertor.counter)
 
     def url_to_pdf(self, url):
         pdfkit.from_url(url, self.pdf_file, configuration=self.config)
-        print('done')
+        return self.pdf_file
 
     def html_to_pdf(self, html):
         pdfkit.from_file(html, self.pdf_file, configuration=self.config)
-        print('done')
+        return self.pdf_file
 
     def string_to_pdf(self, string):
         pdfkit.from_string(string, self.pdf_file, configuration=self.config)
-        print('done')
+        return self.pdf_file
 
-
-c=Convertor()
-c.url_to_pdf('https://mp.weixin.qq.com/s/gJZWwyiYuQlhrKOrF0BMaQ')
