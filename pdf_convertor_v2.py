@@ -11,8 +11,10 @@ class Convertor:
         Convertor.counter+=1
         self.path_wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
         self.config=pdfkit.configuration(wkhtmltopdf=self.path_wkhtmltopdf)
-        self.pdf_folder="C:\\Users\\Basanwei\\Downloads\\pdf"
-        self.pdf_file=os.path.join(self.pdf_folder,'tmp{}.pdf'.format(Convertor.counter))
+        if not os.path.exists('.\\temp'):
+            os.mkdir('.\\temp')
+
+        self.pdf_file='.\\temp\\tmp{}.pdf'.format(Convertor.counter)
 
     def url_to_pdf(self, url):
         pdfkit.from_url(url, self.pdf_file, configuration=self.config)
@@ -27,3 +29,5 @@ class Convertor:
         print('done')
 
 
+c=Convertor()
+c.url_to_pdf('https://mp.weixin.qq.com/s/gJZWwyiYuQlhrKOrF0BMaQ')
