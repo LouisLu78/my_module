@@ -3,17 +3,16 @@
 # If not explicitly pointed out, all the codes are written by myself.
 
 def angle(x, y):
-    import math
-    x_list=list(x)
-    y_list=list(y)
-    if len(x_list)==2:
-        x_list.append(0), y_list.append(0)
-    dot=sum(x_list[i]*y_list[i] for i in range(3))
-    abs_x=math.sqrt(sum(x_list[i]**2 for i in range(3)))
-    abs_y = math.sqrt(sum(y_list[i]**2 for i in range(3)))
+    import numpy as np
+    X=np.array(x)
+    Y=np.array(y)
+
+    dot=np.dot(X,Y)
+    abs_x=np.sqrt(sum(X[i]**2 for i in range(len(X))))
+    abs_y = np.sqrt(sum(Y[i]**2 for i in range(len(Y))))
     cos_value=dot/(abs_x*abs_y)
-    angle=math.acos(cos_value)
-    return angle*180/math.pi
+    angle=np.arccos(cos_value)
+    return angle*180/np.pi
 
 
 def _verify():
@@ -25,3 +24,5 @@ def _verify():
 
 if __name__=='__main__':
     _verify()
+
+
