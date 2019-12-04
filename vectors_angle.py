@@ -4,6 +4,8 @@
 
 def angle(x, y):
     import numpy as np
+    if len(x)!=len(y):
+        raise Exception('The two vectors have different numbers of dimensions.' )
     X=np.array(x)
     Y=np.array(y)
 
