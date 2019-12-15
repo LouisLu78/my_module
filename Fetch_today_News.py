@@ -2,9 +2,13 @@
 # author: Guangqiang Lu time:2019/12/7
 # If not explicitly pointed out, all the codes are written by myself.
 
-import requests, webbrowser
-import shutil, os, random
 import datetime
+import os
+import random
+import shutil
+
+import requests
+import webbrowser
 
 today=datetime.datetime.now()
 Today=today.strftime('%Y_%m_%d')
