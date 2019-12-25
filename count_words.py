@@ -31,11 +31,12 @@ def count_pdf(file):
         page=pdfreader.getPage(i)
         text=page.extractText()
         word_number += len(text)
-    print('The file of {} consists of {} words.'.format(os.path.basename(file), word_number))
+    print('The file of %s consists of %d words.'%(os.path.basename(file), word_number))
 
 def _verify():
     files=[r'C:\Users\Basanwei\Exercise\ex\downfile.txt', r'D:\study\magicmethods.pdf',
-           r'D:\Arbeiten\myfiles\Arbeiten\Downloads\email.docx']
+           r'D:\Arbeiten\myfiles\Arbeiten\Downloads\email.docx',
+           r'D:\book\Physical Chemistry of Polymer Solutions - Theoretical Background.pdf']
     for file in files:
         path, filename=os.path.split(file)[0], os.path.split(file)[1]
         if filename.endswith('.txt'):
@@ -48,4 +49,8 @@ def _verify():
             print('With our module, we currently donnot count the word number in this file type.')
 
 if __name__=='__main__':
+    import time
+    start=time.time()
     _verify()
+    end=time.time()
+    print('The counting costs %.2f seconds.'%(end-start))
