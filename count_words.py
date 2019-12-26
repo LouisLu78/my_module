@@ -30,7 +30,8 @@ def count_pdf(file):
     for i in range(pdfreader.numPages):
         page=pdfreader.getPage(i)
         text=page.extractText()
-        word_number += len(text)
+        word_number += len(text.split())
+
     print('The file of %s consists of %d words.'%(os.path.basename(file), word_number))
 
 def _verify():
