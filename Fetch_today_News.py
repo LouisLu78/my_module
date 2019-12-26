@@ -2,15 +2,14 @@
 # author: Guangqiang Lu time:2019/12/7
 # If not explicitly pointed out, all the codes are written by myself.
 
-import datetime
-import os
-import random
-import shutil
+import datetime, os, random
+import shutil, threading
 
 import requests
 import webbrowser
 
 def fetch_news():
+    global urls
     today=datetime.datetime.now()
     Today=today.strftime('%Y_%m_%d')
     newsfolder="F:\\Gstorage\\news"
@@ -35,13 +34,20 @@ def fetch_news():
             shutil.move('news.html', filename)
             print('done')
 
+def open_url():
     newsurl=random.sample(list(urls.values()),2)
     for url in newsurl:
         webbrowser.open(url)
 
 def _verify():
-    fetch_news()
-    print('Enjoy yourself in reading today\'s news.')
+    t1=threading.Thread(target=fetch_news)
+    t2=threading.Thread(target=open_url)
+    t1.start()
+    t2.start()
+    t1.join()
+    t2.join()
+
 
 if __name__=='__main__':
     _verify()
+    print('Enjoy yourself in reading today\'s news.')
