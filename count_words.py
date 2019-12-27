@@ -14,7 +14,7 @@ def count_txt(file):
         word_number+=len(line.split())
     print('The file of {} consists of {} lines.'.format(os.path.basename(file), len(lines)))
     print('And it totally contains %d words,'%word_number, end=' ')
-    print('which means each line is roughly composed of %.0f words.'%(word_number/len(lines)))
+    print('which means each line is roughly composed of %.1f words.'%(word_number/len(lines)))
 
 def count_docx(file):
     word_number = 0
