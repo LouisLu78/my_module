@@ -9,15 +9,12 @@ import requests
 import webbrowser
 
 def fetch_news():
-    global urls
+
     today=datetime.datetime.now()
     Today=today.strftime('%Y_%m_%d')
     newsfolder="F:\\Gstorage\\news"
     if not os.path.exists(newsfolder):
         os.makedirs(newsfolder)
-
-    urls={'Yahoo':'http://news.yahoo.com','MSN':'http://www.msn.com/en-us/news/world',
-        'FOX':'https://www.foxnews.com/world', 'AP':'https://apnews.com/apf-intlnews'}
 
     for website in urls:
         res=requests.get(urls[website], stream=True)
@@ -40,6 +37,9 @@ def open_url():
         webbrowser.open(url)
 
 def _verify():
+    global urls
+    urls = {'Yahoo': 'http://news.yahoo.com', 'MSN': 'http://www.msn.com/en-us/news/world',
+            'FOX': 'https://www.foxnews.com/world', 'AP': 'https://apnews.com/apf-intlnews'}
     t1=threading.Thread(target=fetch_news)
     t2=threading.Thread(target=open_url)
     t1.start()
