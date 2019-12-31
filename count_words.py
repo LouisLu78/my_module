@@ -47,7 +47,7 @@ def _verify():
         elif filename.endswith('.pdf'):
             count_pdf(file)
         else:
-            print('With our module, we currently donnot count the word number in this file type.')
+            print('With our module, we currently do not count the word number for this file type.')
 
 if __name__=='__main__':
     import time
