@@ -32,7 +32,7 @@ def main(original_url):
     regex = re.compile(r'\W')
     tags=soup.find_all(class_="article_access")
     for tag in tags:
-        text=regex.sub('_', tag.text)
+        text=regex.sub(' ', tag.text)
         urls.append((tag['href'],text))
 
     for i in range(0,len(urls),20):
