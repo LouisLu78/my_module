@@ -3,12 +3,12 @@
 
 def isleap(y):
 
-    if y%100==0:
-       if y%400==0:
+    if y % 100 == 0:
+       if y % 400 == 0:
            return True
        else:
            return False
-    elif y%4==0:
+    elif y % 4 == 0:
         return True
     else:
         return False
