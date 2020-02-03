@@ -12,17 +12,17 @@ function. Include a test block at the end of the module file.
 '''
 def binomial(x, n, p):
     from math import factorial
-    c=factorial(n)/(factorial(x)*factorial(n-x))
-    possibilities=p**x*(1-p)**(n-x)
-    return c*possibilities
+    c = factorial(n) / (factorial(x) * factorial(n-x))
+    possibilities = p**x * (1-p)**(n-x)
+    return c * possibilities
 
 def _verify():
     '''
     suppose we throw a die 100 times with 20 times we get "6-point", obviously in this case success is 1/6.
     '''
-    x, n, p=20, 100, 1/6
-    result=binomial(x,n,p)
-    print('We played %d times with obtaining the six for %d times and the propbability is %9.3E.'%(n,x,result))
+    x, n, p = 20, 100, 1/6
+    result = binomial(x, n, p)
+    print('We played %d times with obtaining the six for %d times and the propbability is %9.3E.'%(n, x, result))
 
 if __name__ == '__main__':
     _verify()
