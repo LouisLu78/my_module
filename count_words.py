@@ -7,11 +7,11 @@ import PyPDF2
 import docx
 
 def count_txt(file):
-    word_number=0
+    word_number = 0
     with open(file,'r') as f:
-        lines=f.readlines()
+        lines = f.readlines()
     for line in lines:
-        word_number+=len(line.split())
+        word_number += len(line.split())
     print('The file of {} consists of {} lines.'.format(os.path.basename(file), len(lines)))
     print('And it totally contains %d words,'%word_number, end=' ')
     print('which means each line is roughly composed of %.1f words.'%(word_number/len(lines)))
@@ -20,26 +20,26 @@ def count_docx(file):
     word_number = 0
     doc=docx.Document(file)
     for p in doc.paragraphs:
-        word_number+=len(p.text.split())
+        word_number += len(p.text.split())
     print('The file of {} consists of {} words.'.format(os.path.basename(file), word_number))
 
 def count_pdf(file):
     word_number = 0
-    f= open(file,'rb')
-    pdfreader=PyPDF2.PdfFileReader(f)
+    f = open(file,'rb')
+    pdfreader = PyPDF2.PdfFileReader(f)
     for i in range(pdfreader.numPages):
-        page=pdfreader.getPage(i)
-        text=page.extractText()
+        page = pdfreader.getPage(i)
+        text = page.extractText()
         word_number += len(text.split())
 
     print('The file of %s consists of %d words.'%(os.path.basename(file), word_number))
 
 def _verify():
-    files=[r'C:\Users\Basanwei\Exercise\ex\downfile.txt', r'D:\study\magicmethods.pdf',
+    files = [r'C:\Users\Basanwei\Exercise\ex\downfile.txt', r'D:\study\magicmethods.pdf',
            r'D:\Arbeiten\myfiles\Arbeiten\Downloads\email.docx',
            r'D:\book\Physical Chemistry of Polymer Solutions - Theoretical Background.pdf']
     for file in files:
-        path, filename=os.path.split(file)[0], os.path.split(file)[1]
+        path, filename = os.path.split(file)[0], os.path.split(file)[1]
         if filename.endswith('.txt'):
             count_txt(file)
         elif filename.endswith('.docx'):
@@ -49,9 +49,9 @@ def _verify():
         else:
             print('With our module, we currently do not count the word number for this file type.')
 
-if __name__=='__main__':
+if __name__ == '__main__':
     import time
-    start=time.time()
+    start = time.time()
     _verify()
-    end=time.time()
+    end = time.time()
     print('The counting costs %.2f seconds.'%(end-start))
