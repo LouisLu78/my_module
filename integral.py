@@ -20,10 +20,10 @@ class Integral:
 
 def _verify():
 
-    f=lambda x: 2*x**2
-    G=Integral(f,0,n=100)
-    result=G(10)
+    f = lambda x: 2 * x ** 2
+    G = Integral(f,0,n=100)
+    result = G(10)
     print(result)
 
-if __name__=='__main__':
+if __name__ == '__main__':
     _verify()
