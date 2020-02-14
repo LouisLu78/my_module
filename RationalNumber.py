@@ -26,6 +26,21 @@ class RationalNumber:
         new_de = self.denominator * other.denominator
         return RationalNumber(new_nu, new_de)
 
+    def __sub__(self, other):
+        new_nu = self.numerator * other.denominator - self.denominator * other.numerator
+        new_de = self.denominator * other.denominator
+        return RationalNumber(new_nu, new_de)
+
+    def __mul__(self, other):
+        new_nu = self.numerator * other.numerator
+        new_de = self.denominator * other.denominator
+        return RationalNumber(new_nu, new_de)
+
+    def __floordiv__(self, other):
+        new_nu = self.numerator * other.denominator
+        new_de = self.denominator * other.numerator
+        return RationalNumber(new_nu, new_de)
+
     def __str__(self):
         if self.numerator == 0 or self.denominator == 1:
             return self.numerator
@@ -42,8 +57,15 @@ def _verify():
     rn_b = RationalNumber(2, 3)
     print(rn_b)
     rn_c = RationalNumber(4, 7)
-    a= rn_b + rn_a
-    print(a)
+    s= rn_a - rn_b
+    print(s)
+    m = rn_b // rn_c
+    print(m)
+    if rn_b > rn_c:
+        print('rn_b is greater')
+    else:
+        print('rn_c is greater')
+    print(rn_b > rn_a)
 
 if __name__=='__main__':
     _verify()
