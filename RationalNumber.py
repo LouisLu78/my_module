@@ -8,9 +8,12 @@ from gcd import *
 
 class RationalNumber:
     def __init__(self, numerator = 1, denominator = 2):
-        g = gcd(numerator, denominator)
-        self.numerator = numerator / g
-        self.denominator = denominator / g
+        if denominator == 0:
+            print("The denominator cannot be zero, please reenter another number!")
+        else:
+            g = gcd(numerator, denominator)
+            self.numerator = numerator / g
+            self.denominator = denominator / g
 
     def __eq__(self, other):
         return self.numerator * other.denominator == self.denominator * other.numerator
@@ -62,9 +65,9 @@ def _verify():
     m = rn_b // rn_c
     print(m)
     if rn_b > rn_c:
-        print('rn_b is greater')
+        print('rn_b is greater.')
     else:
-        print('rn_c is greater')
+        print('rn_c is greater.')
     print(rn_b > rn_a)
 
 if __name__=='__main__':
