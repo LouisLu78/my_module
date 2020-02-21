@@ -6,15 +6,17 @@ def angle(x, y):
     import numpy as np
     if len(x)!=len(y):
         raise Exception('The two vectors have unequal numbers of dimensions!' )
-    X=np.array(x)
-    Y=np.array(y)
 
-    dot=np.dot(X,Y)
-    abs_x=np.sqrt(np.dot(X,X))
-    abs_y = np.sqrt(np.dot(Y,Y))
-    cos_value=dot/(abs_x*abs_y)
-    angle=np.arccos(cos_value)
-    return angle*180/np.pi
+    else:
+        X=np.array(x)
+        Y=np.array(y)
+
+        dot=np.dot(X,Y)
+        abs_x=np.sqrt(np.dot(X,X))
+        abs_y = np.sqrt(np.dot(Y,Y))
+        cos_value=dot/(abs_x*abs_y)
+        angle=np.arccos(cos_value)
+        return angle*180/np.pi
 
 
 def _verify():
