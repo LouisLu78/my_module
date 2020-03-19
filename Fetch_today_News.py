@@ -47,6 +47,7 @@ def _verify():
     t1.join()
     t2.join()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     _verify()
     print('Enjoy yourself in reading today\'s news.')

@@ -9,10 +9,11 @@ def gcd(x, y):
     else:
         return gcd(y, x % y)
 
-def _verify():
 
+def _verify():
     x, y = 45, 35
-    print("The greatest common divisor of %d and %d is %d." %(x, y, gcd(x,y)))
+    print("The greatest common divisor of %d and %d is %d." % (x, y, gcd(x, y)))
+
 
 if __name__ == "__main__":
     _verify()
