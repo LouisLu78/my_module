@@ -2,7 +2,6 @@
 # author: Guangqiang Lu time:2020/2/14
 # Email: gq4350lu@hotmail.com
 
-
 import math
 from gcd import *
 
