@@ -8,16 +8,16 @@ import shutil, threading
 import requests
 import webbrowser
 
-def fetch_news():
 
-    today=datetime.datetime.now()
-    Today=today.strftime('%Y_%m_%d')
-    newsfolder="F:\\Gstorage\\news"
+def fetch_news():
+    today = datetime.datetime.now()
+    Today = today.strftime('%Y_%m_%d')
+    newsfolder = "F:\\Gstorage\\news"
     if not os.path.exists(newsfolder):
         os.makedirs(newsfolder)
 
     for website in urls:
-        res=requests.get(urls[website], stream=True)
+        res = requests.get(urls[website], stream=True)
         if res.status_code != 200:
             print('The internet connection for {} doesn\'t work today.'.format(website))
             continue
@@ -31,17 +31,19 @@ def fetch_news():
             shutil.move('news.html', filename)
             print('done')
 
+
 def open_url():
-    newsurl=random.sample(list(urls.values()),2)
+    newsurl = random.sample(list(urls.values()), 2)
     for url in newsurl:
         webbrowser.open(url)
+
 
 def _verify():
     global urls
     urls = {'Yahoo': 'http://news.yahoo.com', 'MSN': 'http://www.msn.com/en-us/news/world',
             'FOX': 'https://www.foxnews.com/world', 'AP': 'https://apnews.com/apf-intlnews'}
-    t1=threading.Thread(target=fetch_news)
-    t2=threading.Thread(target=open_url)
+    t1 = threading.Thread(target=fetch_news)
+    t2 = threading.Thread(target=open_url)
     t1.start()
     t2.start()
     t1.join()
