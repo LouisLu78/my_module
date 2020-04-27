@@ -18,6 +18,7 @@ def _verify():
     list_a = [5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8]
     l = quick_sort(list_a)
     print(l)
+    print(list_a)
 
     list_b = [2, 6, 4, 8, 10, 12, 89, 68, 3.14, 45, 37, 43, 456, 84]
     l = quick_sort(list_b)
