@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # author: Guangqiang Lu time:2020/4/26
 # Email: gq4350lu@hotmail.com
+# This program is written by myself.
 
 def quick_sort(originalList):
     if len(originalList) <= 1:
@@ -11,7 +12,8 @@ def quick_sort(originalList):
         left = [num for num in originalList if num < mid]
         right = [num for num in originalList if num >= mid]
 
-        return quick_sort(left) + [mid] + quick_sort(right)
+        originalList = quick_sort(left) + [mid] + quick_sort(right)
+        return originalList
 
 
 def _verify():
