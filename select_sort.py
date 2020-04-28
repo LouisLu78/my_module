@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # author: Guangqiang Lu time:2020/4/28
 # Email: gq4350lu@hotmail.com
-# This program is a translation of its c/c++ counterpart.
+
 
 def select_sort(originalList):
     size = len(originalList)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # author: Guangqiang Lu time:2020/4/26
 # Email: gq4350lu@hotmail.com
-# This program is written by myself.
+
 
 def quick_sort(originalList):
     if len(originalList) <= 1:
