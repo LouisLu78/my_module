@@ -2,6 +2,7 @@
 # author: Guangqiang Lu time:2020/4/28
 # Email: gq4350lu@hotmail.com
 
+import time, random
 
 def select_sort(originalList):
     size = len(originalList)
@@ -22,6 +23,15 @@ def _verify():
     select_sort(list_b)
     print(list_b)
 
+    list_c = [random.randint(1, 10000) for i in range(10000)]
+    l = select_sort(list_c)
+    print(l)
+
 
 if __name__ == '__main__':
+    start = time.time()
     _verify()
+    end = time.time()
+    print("The sorting program costs %.2f seconds." % (end - start))
+
+
