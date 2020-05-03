@@ -27,10 +27,7 @@ def _verify():
     insert_sort(list_b)
     print(list_b)
 
-
-    list_c = []
-    for i in range(100000):
-        list_c.append(random.randint(1, 10000))
+    list_c = [random.randint(1, 100000) for i in range(100000)]
     l = insert_sort(list_c)
     print(l)
 

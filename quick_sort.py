@@ -4,6 +4,7 @@
 
 import time, random
 
+
 def quick_sort(originalList):
     if len(originalList) <= 1:
         return originalList
@@ -21,20 +22,18 @@ def _verify():
     list_a = [5, 3, 7, 6, 4, 1, 0, 2, 9, 10, 8]
     l = quick_sort(list_a)
     print(l)
-    print(list_a)
 
     list_b = [2, 6, 4, 8, 10, 12, 89, 68, 3.14, 45, 37, 43, 456, 84]
     l = quick_sort(list_b)
     print(l)
 
-    list_c =[]
-    for i in range(100000):
-        list_c.append(random.randint(1, 100000))
+    list_c = [random.randint(1, 100000) for i in range(100000)]
     l = quick_sort(list_c)
     print(l)
+
 
 if __name__ == '__main__':
     start = time.time()
     _verify()
     end = time.time()
-    print("The sorting program costs %.2f seconds."%(end - start))
+    print("The sorting program costs %.2f seconds." % (end - start))
