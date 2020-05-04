@@ -5,7 +5,7 @@
 import time, random
 
 
-class Heap_sort():
+class Heap_sort:
     def __init__(self, originalList):
         self.originalList = originalList
         self.sort()
@@ -13,22 +13,23 @@ class Heap_sort():
     def buildHeap(self):
         length = len(self.originalList)
         for i in range(length // 2 - 1, -1, -1):
-            self.adjustHeap(i, length)
+            Heap_sort.adjustHeap(self.originalList, i, length)
 
-    def adjustHeap(self, index, length):
+    @staticmethod
+    def adjustHeap(aList, index, length):
 
-        temp = self.originalList[index]
+        temp = aList[index]
         left = 2 * index + 1
         while left < length:
-            if left + 1 < length and self.originalList[left] < self.originalList[left + 1]:
+            if left + 1 < length and aList[left] < aList[left + 1]:
                 left += 1
-            if self.originalList[index] < self.originalList[left]:
-                self.originalList[index] = self.originalList[left]
+            if aList[index] < aList[left]:
+                aList[index] = aList[left]
                 index = left
                 left = 2 * index + 1
             else:
                 break
-            self.originalList[index] = temp
+            aList[index] = temp
 
     def sort(self):
         self.buildHeap()
@@ -36,7 +37,7 @@ class Heap_sort():
         length = len(self.originalList)
         for i in range(length - 1, -1, -1):
             self.originalList[0], self.originalList[i] = self.originalList[i], self.originalList[0]
-            self.adjustHeap(0, i)
+            Heap_sort.adjustHeap(self.originalList, 0, i)
 
     def __str__(self):
         s = ""
