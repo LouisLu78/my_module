@@ -33,7 +33,7 @@ class Merge_sort:
 
     def mergeSort(self, first, last, sortedList):
         mid = (first + last) // 2
-        if first + 1 < last:
+        if first < last - 1:
             self.mergeSort(first, mid, sortedList)
             self.mergeSort(mid, last, sortedList)
             Merge_sort.merge(self.originalList, first, mid, last, sortedList)
