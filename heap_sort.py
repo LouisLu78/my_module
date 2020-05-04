@@ -8,7 +8,6 @@ import time, random
 class Heap_sort():
     def __init__(self, originalList):
         self.originalList = originalList
-        self.buildHeap()
         self.sort()
 
     def buildHeap(self):
@@ -32,8 +31,9 @@ class Heap_sort():
             self.originalList[index] = temp
 
     def sort(self):
-        length = len(self.originalList)
+        self.buildHeap()
 
+        length = len(self.originalList)
         for i in range(length - 1, -1, -1):
             self.originalList[0], self.originalList[i] = self.originalList[i], self.originalList[0]
             self.adjustHeap(0, i)
