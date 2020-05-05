@@ -31,7 +31,9 @@ def radix_sort(originalList):
 def printf(originalList):
     for i in range(0, len(originalList), 20):
         subList = list(originalList[i:i + 20])
-        print(subList)
+        for num in subList:
+            print("%6d"%num, end = "")
+        print()
     print()
 
 
