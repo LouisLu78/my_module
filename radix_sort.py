@@ -7,11 +7,11 @@ import math
 
 
 def radix_sort(originalList):
-    size = len(originalList)
-    k = 0
-    radix = 1
     number = max(originalList)
     digit = int(math.log(number, 10)) + 1
+
+    k = 0
+    radix = 1
     sortedList = [[] for i in range(10)]
 
     for i in range(digit):
@@ -27,15 +27,13 @@ def radix_sort(originalList):
         radix *= 10
         sortedList = [[] for i in range(10)]
 
-
 def printf(originalList):
     for i in range(0, len(originalList), 20):
         subList = list(originalList[i:i + 20])
         for num in subList:
-            print("%6d"%num, end = "")
+            print("%-7d" % num, end = "")
         print()
     print()
-
 
 def _verify():
     list_b = [2, 615, 4, 8123, 10, 12, 89, 68, 3.14, 45, 37, 43, 456, 84]
